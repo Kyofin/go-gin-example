@@ -30,7 +30,7 @@ func init() {
 	}
 
 	dbType = sec.Key("TYPE").String()
-	dbName = sec.Key("NAME").String()
+	dbName = sec.Key("DBNAME").String()
 	user = sec.Key("USER").String()
 	password = sec.Key("PASSWORD").String()
 	host = sec.Key("HOST").String()
