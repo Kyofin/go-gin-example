@@ -17,6 +17,10 @@ var (
 
 	PageSize  int
 	JwtSecret string
+
+	ENDPOINT      string
+	ACCESS_SECRET string
+	ACCESS_KEY    string
 )
 
 func init() {
@@ -29,6 +33,7 @@ func init() {
 	LoadBase()
 	LoadServer()
 	LoadApp()
+	LoadMinio()
 }
 
 func LoadBase() {
@@ -54,4 +59,15 @@ func LoadApp() {
 
 	JwtSecret = sec.Key("JWT_SECRET").MustString("!@)*#)!@U#@*!@!)")
 	PageSize = sec.Key("PAGE_SIZE").MustInt(10)
+}
+
+func LoadMinio() {
+	sec, err := Cfg.GetSection("minio")
+	if err != nil {
+		log.Fatalf("Fail to get section 'minio': %v", err)
+	}
+
+	ACCESS_KEY = sec.Key("ACCESS_KEY").MustString("")
+	ACCESS_SECRET = sec.Key("ACCESS_SECRET").MustString("")
+	ENDPOINT = sec.Key("ENDPOINT").MustString("")
 }

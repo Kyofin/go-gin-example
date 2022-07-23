@@ -3,6 +3,7 @@ package util
 import (
 	"context"
 	"fmt"
+	"github.com/huzk8/go-gin-example/pkg/setting"
 	"github.com/minio/minio-go/v7"
 	"github.com/minio/minio-go/v7/pkg/credentials"
 	"log"
@@ -10,9 +11,9 @@ import (
 )
 
 func mino() {
-	endpoint := "localhost:9100"
-	accessKeyID := "minio"
-	secretAccessKey := "minio123"
+	endpoint := setting.ENDPOINT
+	accessKeyID := setting.ACCESS_KEY
+	secretAccessKey := setting.ACCESS_SECRET
 	useSSL := false
 
 	// Initialize minio client object.
