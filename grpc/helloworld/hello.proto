@@ -1,0 +1,24 @@
+syntax = "proto3";
+package foo.bar;
+option java_multiple_files = true;
+
+option java_package = "com.example.foo.bar";
+option go_package = "example.com/project/protos/fizz";
+
+// The greeting service definition.
+service Greeter {
+  // Sends a greeting
+  rpc SayHello (HelloRequest) returns (HelloReply) {}
+  // Sends another greeting
+  rpc SayHelloAgain (HelloRequest) returns (HelloReply) {}
+}
+
+// The request message containing the user's name.
+message HelloRequest {
+  string name = 1;
+}
+
+// The response message containing the greetings
+message HelloReply {
+  string message = 1;
+}
